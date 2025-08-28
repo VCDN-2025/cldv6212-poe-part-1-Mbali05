@@ -1,0 +1,41 @@
+﻿@model IEnumerable<AzureApp.Models.Customer>
+
+@{
+    ViewData["Title"] = "Customer Details";
+}
+
+<h1>Customer Details</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-transparent">Create New</a>
+</p>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone Number</th>
+            <th>Address</th>
+            <th>Cart Total</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Email</td>
+                <td>@item.PhoneNumber</td>
+                <td>@item.Address</td>
+                <td>@($"R{item.CartTotal:N2}")</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.RowKey">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.RowKey">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.RowKey">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

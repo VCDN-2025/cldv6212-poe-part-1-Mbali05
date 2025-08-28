@@ -1,0 +1,42 @@
+﻿@model IEnumerable<AzureApp.Models.Orders>
+
+@{
+    ViewData["Title"] = "Order Details";
+}
+
+<h1>Order Details</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-transparent">Create New Order</a>
+
+</p>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Customer Name</th>
+            <th>Product Name</th>
+            <th>Quantity</th>
+            <th>Order Date</th>
+            <th>Order Status</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Customer.Name</td>
+                <td>@item.Product.ProductName</td>
+                <td>@item.Quantity</td>
+                <td>@item.OrderDate.ToString("yyyy-MM-dd")</td>
+                <td>@item.OrderStatus</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.OrderID">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.OrderID">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.OrderID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

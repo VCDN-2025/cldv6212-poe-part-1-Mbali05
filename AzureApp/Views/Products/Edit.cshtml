@@ -1,0 +1,36 @@
+﻿@model AzureApp.Models.Product
+
+<h2>Edit Product</h2>
+<form asp-action="Edit" method="post" enctype="multipart/form-data">
+    <input type="hidden" asp-for="RowKey" />
+    <input type="hidden" asp-for="PartitionKey" />
+
+    <div class="mb-3">
+        <label asp-for="ProductName"></label>
+        <input asp-for="ProductName" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label asp-for="ProductPrice"></label>
+        <input asp-for="ProductPrice" type="number" class="form-control" step="0.01" />
+
+    </div>
+    <div class="mb-3">
+        <label asp-for="StockQuantity"></label>
+        <input asp-for="StockQuantity" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label asp-for="Description"></label>
+        <textarea asp-for="Description" class="form-control"></textarea>
+    </div>
+    <div class="mb-3">
+        <label>Change Image</label>
+        <input type="file" name="ImageFile" class="form-control" />
+        @if (!string.IsNullOrEmpty(Model.ImageUrl))
+        {
+            <img src="@Model.ImageUrl" alt="Current Image" style="height:150px;margin-top:10px;" />
+        }
+    </div>
+
+    <button type="submit" class="btn btn-success">Save Changes</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>

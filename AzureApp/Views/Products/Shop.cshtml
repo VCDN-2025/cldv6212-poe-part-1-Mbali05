@@ -1,0 +1,66 @@
+﻿@model IEnumerable<AzureApp.Models.Product>
+@using AzureApp.Models
+
+@{
+    ViewData["Title"] = "Shop";
+    var customers = ViewData["Customers"] as List<Customer>;
+}
+
+<h2 class="text-center mb-4">Shop</h2>
+
+<!-- Customer selection -->
+@if (customers != null && customers.Any())
+{
+    <div class="mb-4 text-center">
+        <form method="post" asp-action="SelectCustomer" class="d-inline-block">
+            <label for="customerSelect" class="form-label fw-bold">Select Your Customer Profile:</label>
+            <select class="form-select d-inline-block w-auto" id="customerSelect" name="customerId" required>
+                <option value="">-- Choose Customer --</option>
+                @foreach (var c in customers)
+                {
+                    <option value="@c.RowKey">@c.Name</option>
+                }
+            </select>
+            <button type="submit" class="btn btn-success ms-2">Start Shopping</button>
+        </form>
+
+        @if (ViewBag.SelectedCustomer != null)
+        {
+            <form method="post" asp-action="GenerateInvoice" class="d-inline-block ms-2">
+                <button type="submit" class="btn btn-primary">Generate Invoice</button>
+            </form>
+        }
+    </div>
+}
+
+@if (ViewBag.SelectedCustomer != null)
+{
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        @foreach (var item in Model)
+        {
+            <div class="card product-card h-100">
+                @if (!string.IsNullOrEmpty(item.ImageUrl))
+                {
+                    <img src="@item.ImageUrl" class="card-img-top" alt="@item.ProductName" style="max-height:200px; object-fit:contain;" />
+                }
+                else
+                {
+                    <div class="card-img-top d-flex align-items-center justify-content-center bg-light" style="height:200px;">
+                        <span class="text-muted">No Image</span>
+                    </div>
+                }
+
+                <div class="card-body text-center">
+                    <h5 class="card-title">@item.ProductName</h5>
+                    <p class="card-text text-muted">@item.Description</p>
+                    <p class="card-text fw-bold">Price: R @String.Format("{0:N2}", item.ProductPrice)</p>
+
+                    <form asp-action="AddToCart" method="post">
+                        <input type="hidden" name="productId" value="@item.RowKey" />
+                        <button type="submit" class="btn btn-primary w-100">Add to Cart</button>
+                    </form>
+                </div>
+            </div>
+        }
+    </div>
+}

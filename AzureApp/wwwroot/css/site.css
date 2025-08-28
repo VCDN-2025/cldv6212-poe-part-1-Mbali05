@@ -1,0 +1,147 @@
+/* Base font and text color for entire site */
+html, body {
+    height: 100%;
+    margin: 0;
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+    color: white; /* default page text is white */
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+/* Full-page wallpaper */
+body {
+    background-image: url('https://static.vecteezy.com/system/resources/previews/035/424/424/non_2x/ai-generated-fruits-and-vegetables-on-shop-stand-in-supermarket-grocery-store-ai-generated-free-photo.jpg');
+    background-size: cover; /* fill entire page */
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* stays in place on scroll */
+    background-position: center;
+    min-height: 100vh;
+    margin-bottom: 0; /* remove extra space at bottom */
+}
+
+/* Navbar styling */
+.navbar {
+    background-color: transparent !important; /* let wallpaper show */
+}
+
+    .navbar .navbar-brand,
+    .navbar .nav-link {
+        color: white !important; /* links & brand white */
+    }
+
+        .navbar .nav-link:hover {
+            color: #cccccc !important; /* lighter on hover */
+        }
+
+/* Buttons and form focus shadows */
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus,
+.form-control:focus, .form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+/* Links outside navbar */
+a {
+    color: white;
+}
+
+    a:hover {
+        color: #cccccc;
+    }
+
+/* Hero section (welcome page) */
+.hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 80vh;
+    background: rgba(0, 0, 0, 0.4); /* overlay for readability */
+    padding: 20px;
+}
+
+.hero-title {
+    font-size: 4rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.hero-slogan {
+    font-size: 1.5rem;
+    margin-bottom: 40px;
+    font-style: italic;
+}
+
+/* Buttons inside hero */
+.hero-buttons {
+    display: flex;
+    gap: 20px; /* space between buttons */
+    justify-content: center;
+    flex-wrap: wrap; /* wrap on small screens */
+}
+
+.btn-transparent {
+    background-color: rgba(255, 255, 255, 0.2); /* semi-transparent */
+    color: white;
+    border: 1px solid white;
+}
+
+    .btn-transparent:hover {
+        background-color: rgba(255, 255, 255, 0.4);
+        color: white;
+    }
+
+.hero .btn {
+    margin: 0;
+    font-size: 1.25rem;
+}
+
+/* Modal background with blur */
+.modal-content {
+    background-color: rgba(255, 255, 255, 0.8); /* semi-transparent white */
+    backdrop-filter: blur(8px); /* modern frosted glass effect */
+    -webkit-backdrop-filter: blur(8px); /* Safari support */
+    padding: 20px;
+    border-radius: 10px;
+    color: black !important; /* force black text */
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2); /* subtle shadow */
+}
+
+    /* Inputs and textarea inside modal */
+    .modal-content input,
+    .modal-content textarea {
+        background-color: rgba(255, 255, 255, 0.9);
+        color: black !important;
+        border: 1px solid #ced4da;
+        padding: 5px 10px;
+        border-radius: 5px;
+    }
+
+    /* Labels inside modal */
+    .modal-content label {
+        color: black !important;
+        font-weight: bold;
+    }
+
+/* Product card styling */
+.product-card,
+.product-card * {
+    color: black !important; /* everything inside product card is black */
+}
+
+.card,
+.card * {
+    color: black !important; /* force black text for Bootstrap cards */
+    background-color: white; /* white background for readability */
+}
+
+    /* Buttons inside cards */
+    .card button {
+        color: white !important;
+        background-color: #007bff; /* Bootstrap blue button */
+    }

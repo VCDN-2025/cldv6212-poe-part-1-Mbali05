@@ -1,0 +1,60 @@
+﻿@{
+    ViewData["Title"] = "Welcome";
+}
+
+<div class="hero text-center py-5">
+    <h1 class="hero-title">Welcome to Shop Ease</h1>
+    <p class="hero-slogan">Quality Products, Happy Customers</p>
+    <a class="btn btn-transparent btn-lg mt-4" asp-action="SignIn">Sign In</a>
+</div>
+
+<section class="about-us py-5">
+    <div class="container text-center">
+        <h2>About Shop Ease</h2>
+        <p class="about-text">
+            Shop Ease is dedicated to providing high-quality products with exceptional customer service.
+            Our mission is to make online shopping seamless and enjoyable for everyone.
+        </p>
+        <p class="about-text">
+            Explore our wide range of products and experience shopping made easy.
+        </p>
+    </div>
+</section>
+
+<style>
+    /* Dark semi-transparent background for both hero and about sections */
+    .hero, .about-us {
+        background-color: rgba(0, 0, 0, 0.7); /* dark but slightly see-through */
+        color: #fff;
+    }
+
+    .hero {
+        padding: 100px 20px; /* more spacing for hero */
+    }
+
+    .hero-title {
+        font-size: 3rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .hero-slogan {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .about-us h2 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .about-text {
+        font-size: 1.2rem;
+        line-height: 1.6;
+    }
+
+    .btn-transparent {
+        background-color: rgba(255, 255, 255, 0.2);
+        color: #fff;
+        border: 1px solid #fff;
+    }
+</style>

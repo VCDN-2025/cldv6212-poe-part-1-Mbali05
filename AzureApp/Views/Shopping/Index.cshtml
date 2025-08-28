@@ -1,0 +1,25 @@
+﻿@model IEnumerable<AzureApp.Models.Product>
+
+<h2>Shop Products</h2>
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-3 mb-3">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <h5 class="card-title">@item.ProductName</h5>
+                    <p class="card-text">R @String.Format("{0:N2}", item.ProductPrice)</p>
+
+                    <form asp-action="AddToCart" method="post">
+                        <!-- Azure Table keys instead of ProductID -->
+                        <input type="hidden" name="partitionKey" value="@item.PartitionKey" />
+                        <input type="hidden" name="rowKey" value="@item.RowKey" />
+
+                        <button type="submit" class="btn btn-outline-primary w-100">Add to Cart</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    }
+</div>
