@@ -1,6 +1,7 @@
 # Azure E-Commerce Web App
 
-This is a simple **ASP.NET Core MVC application** that demonstrates an end-to-end e-commerce workflow powered by **Azure Storage services**.  
+This is a simple **ASP.NET Core MVC application** that demonstrates an end-to-end e-commerce workflow powered by **Azure Storage services**.    
+
 The project includes product management, customer shopping, checkout with invoice generation, inventory updates, and order queuing.
 
 ---
@@ -9,11 +10,11 @@ The project includes product management, customer shopping, checkout with invoic
 
 ### Admin
 - Product Management:
-  - Add new products with images
+  - Add new products with images as well as their corresponding information like price and stock quantity
   - Edit existing products
   - Delete products  
-- Product images are uploaded to **Azure Blob Storage**  
-- Product details are stored in **Azure Table Storage**
+  - Product images are uploaded to **Azure Blob Storage**  
+  - Product details are stored in **Azure Table Storage**
 
 ### Customers
 - Shop – Browse products and add them to your cart  
@@ -21,10 +22,11 @@ The project includes product management, customer shopping, checkout with invoic
 - Checkout – Generate an invoice and complete the order  
 
 When an order is placed:
-1. An invoice (`.txt` file) is created and uploaded to **Azure File Share**
-2. Product stock levels are reduced automatically
-3. An order message (`"Processing order"`) is pushed to the **Azure Queue** (`neworders`)
-4. The shopping cart is cleared
+1.The user must choose their existing profile which was saved to **Azure Table Storage** before they can begin an order
+2. An invoice (`.txt` file) is created and uploaded to **Azure File Share** when the user finishes paying and presses the **Generate Invoice** button
+3. Product stock quantity is reduced automatically 
+4. An order message (`"ProcessingOrder"`) is pushed to **Azure Queue** (`neworders`)
+5. The shopping cart is cleared
 
 ---
 
@@ -61,9 +63,9 @@ When an order is placed:
 ## Azure Integration
 
 - **Blob Storage** – used for images (uploaded when creating/editing products)  
-- **Table Storage** – used to store product + customer data with PartitionKey/RowKey  
-- **File Share** – used to store invoices as text files  
-- **Queue Storage** – used to signal that an order has been placed (message: `"Processing order"`)  
+- **Table Storage** – used to store product information + customer data with PartitionKey/RowKey  
+- **File Share** – used to store dummy contracts such as invoices as text files  
+- **Queue Storage** – used to signal that an order has been placed (message: `"Processing Order"`)  
 
 ---
 
