@@ -53,7 +53,7 @@ namespace AzureApp.Controllers
                 return RedirectToAction("Index");
             }
 
-            // Create new order
+            // Create new order for customer
             var order = new Orders
             {
                 CustomerId = "GuestCustomer", 
