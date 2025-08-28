@@ -82,4 +82,13 @@ When an order is placed:
 - It's a foundation that can be extended with:
   - Payment integration
   - Order history for customers
-  - Background workers for queue processing  
+  - Background workers for queue processing
+
+ ---
+ 
+Disclosure of AI Usage in my Assessment:
+•   Section which generative AI was used: Part 1
+•   Name of AI tool used: ChatGPT
+•   Purpose/Intention behind use: To guide me with code by helping debug errors and providing step-by-step support in building and testing key system features.
+•    Date in which generative AI was used: 27 August 2025
+•    Link to the generative AI: https://chatgpt.com/c/68b092e4-cb90-8326-9c09-56dacf3302ce  
