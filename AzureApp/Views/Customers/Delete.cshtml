@@ -41,7 +41,6 @@
     </dl>
 
     <form asp-action="Delete" method="post">
-        <!-- Use Azure Table keys instead of CustomerID -->
         <input type="hidden" asp-for="PartitionKey" />
         <input type="hidden" asp-for="RowKey" />
 

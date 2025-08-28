@@ -5,12 +5,11 @@
 }
 
 <div class="container mt-4">
-    <!-- Transparent Create New button -->
+
     <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#createProductModal">
         <i class="bi bi-plus-circle"></i> Create New
     </button>
 
-    <!-- Modal for adding product -->
     <div class="modal fade" id="createProductModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content rounded-3 shadow">
@@ -47,7 +46,6 @@
         </div>
     </div>
 
-    <!-- Product Cards -->
     <div class="row mt-4">
         @foreach (var item in Model)
         {
@@ -87,7 +85,6 @@
     </div>
 </div>
 
-<!-- Scripts -->
 <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
 <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
 

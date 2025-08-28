@@ -19,9 +19,9 @@ builder.Services.AddSession(options =>
 var azureConfig = builder.Configuration.GetSection("AzureStorage");
 string connectionString = azureConfig.GetValue<string>("ConnectionString");
 
-// === Register Azure Services for DI ===
+// Registered Azure Services
 builder.Services.AddSingleton(sp => new TableServiceClient(connectionString));
-builder.Services.AddSingleton<TableService>();      // wraps TableClient for tables
+builder.Services.AddSingleton<TableService>();      // TableClient for tables
 builder.Services.AddSingleton<BlobService>();       // Blob storage
 builder.Services.AddSingleton<QueueService>();      // Queue storage
 builder.Services.AddSingleton<FileShareService>();  // File share storage

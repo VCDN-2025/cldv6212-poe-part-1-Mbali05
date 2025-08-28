@@ -15,16 +15,14 @@ namespace AzureApp.Models
         public int StockQuantity { get; set; }
         public string? Description { get; set; }
 
-        // Store Blob URL instead of binary
         public string? ImageUrl { get; set; }
 
         public int TimesBought { get; set; } = 0;
 
-        // Not stored in Table, only for uploads
+       
         [System.ComponentModel.DataAnnotations.Schema.NotMapped]
         public IFormFile? ImageFile { get; set; }
 
-        // Required by ITableEntity
         public DateTimeOffset? Timestamp { get; set; }
         public ETag ETag { get; set; }
     }

@@ -40,14 +40,14 @@ namespace AzureApp.Services
 
         public async Task UpdateProductAsync(ProductEntity product)
         {
-            // Option 1: Unconditional update to avoid empty ETag issue
+            
             await _productsTable.UpdateEntityAsync(product, ETag.All, TableUpdateMode.Replace);
         }
 
         public async Task DeleteProductAsync(string rowKey)
             => await _productsTable.DeleteEntityAsync("Product", rowKey);
 
-        // Synchronous GetProduct by RowKey
+        
         public ProductEntity? GetProduct(string rowKey)
         {
             try

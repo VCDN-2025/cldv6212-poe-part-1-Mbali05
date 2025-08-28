@@ -12,7 +12,6 @@
                     <p class="card-text">R @String.Format("{0:N2}", item.ProductPrice)</p>
 
                     <form asp-action="AddToCart" method="post">
-                        <!-- Azure Table keys instead of ProductID -->
                         <input type="hidden" name="partitionKey" value="@item.PartitionKey" />
                         <input type="hidden" name="rowKey" value="@item.RowKey" />
 

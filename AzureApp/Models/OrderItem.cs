@@ -14,7 +14,6 @@ namespace AzureApp.Models
         public int Quantity { get; set; }
         public decimal Price { get; set; }
 
-        // Required by ITableEntity
         public DateTimeOffset? Timestamp { get; set; }
         public ETag ETag { get; set; }
     }
